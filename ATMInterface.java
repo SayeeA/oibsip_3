@@ -1,6 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////
-//				Jay Ganesh
-////////////////////////////////////////////////////////////////////////////////
+
 import java.lang.*;
 import java.util.*;
 import java.time.LocalDateTime;
@@ -18,16 +16,7 @@ class Account
 		AccountNumber = 1034;
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    Account
-	//Description:      Constructor , allocate the resources required by class
-	//Input:            String,int
-	//Output:           ---
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public Account(String str, int value) {
 		this.UserID = ++AccountNumber; // pre-increment
 		this.Username = str;
@@ -35,16 +24,7 @@ class Account
 		this.balance = 0;
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    DisplayData
-	//Description:      Display the values of members of object
-	//Input:            ---
-	//Output:           ---
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public void DisplayData() {
 		System.out.println("---------------------------------------------------");
 		System.out.println("Your Account Details are : ");
@@ -61,30 +41,12 @@ class DBMS {
 	LinkedList<Account> lobj; // just a reference
 	Scanner scanobj = new Scanner(System.in);
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    DBMS
-	//Description:      Consructor to alloacte resources and initialize LinkedList of accounts
-	//Input:            ---
-	//Output:           ---
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public DBMS() {
 		lobj = new LinkedList<>();
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    StartDBMS
-	//Description:      Start the ATM and show the menu to new user
-	//Input:            ---
-	//Output:           ---
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public void StartDBMS()
 	{
 		System.out.println("Welcome to ATM");
@@ -266,16 +228,6 @@ class DBMS {
 		}
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    register
-	//Description:      register the account with input details 
-	//Input:            String,int
-	//Output:           boolean
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
 	public boolean register(String str, int value) {
 		Account sobj = new Account(str, value);
 		if (lobj.add(sobj)) {
@@ -285,16 +237,7 @@ class DBMS {
 		}
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    DisplayAll()
-	//Description:      display the all objects of all account objects
-	//Input:            ---
-	//Output:           ---
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public void DisplayAll() {
 		// Display by no condition
 		// for-each
@@ -303,16 +246,7 @@ class DBMS {
 		}
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    login
-	//Description:      login to user account into ATM
-	//Input:            String,int
-	//Output:           boolean
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public boolean login(String sUsername, int iPin) {
 		boolean bRet = false;
 		for (Account sref : lobj) {
@@ -324,16 +258,7 @@ class DBMS {
 		return bRet;
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    isUnique
-	//Description:      checks whether username given while registeration is unique or not
-	//Input:            String
-	//Output:           boolean
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public boolean isUnique(String sUsername) {
 		boolean bRet = true;
 		for (Account sref : lobj)
@@ -347,16 +272,7 @@ class DBMS {
 		return bRet;
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    deposit
-	//Description:      deposit the amount from account
-	//Input:            String,int
-	//Output:           boolean
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public boolean deposit(StringBuffer sUsername, int iAmount) {
 		int iCnt = 0;
 		boolean bRet = false;
@@ -377,16 +293,7 @@ class DBMS {
 		return bRet;
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    withdraw
-	//Description:      withdraw the amount from account
-	//Input:            String,int
-	//Output:           boolean
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public boolean withdraw(StringBuffer sUsername, int iAmount) {
 		int iCnt = 0;
 		boolean bRet = false;
@@ -422,16 +329,6 @@ class DBMS {
 		return bRet;
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    isExist
-	//Description:      Checks whther account with input username exists in ATM system or not
-	//Input:            String
-	//Output:           boolean
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
 	public boolean isExist(StringBuffer sUsername)
 	{
 		boolean bRet = false;
@@ -444,16 +341,7 @@ class DBMS {
 		return bRet;
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    transfer
-	//Description:      transfer amount from one to aother account
-	//Input:            String,String
-	//Output:           boolean
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public boolean transfer(StringBuffer sUsername_self, StringBuffer sUsername_another, int iAmount) {
 
 		//check whether another account exists
@@ -475,15 +363,7 @@ class DBMS {
 
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    getTransactionDetails
-	//Description:      get the log of user actions
-	//Input:            String
-	//Output:           ---
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
+	
 	//////////////////////////////////////////////////////////
 	public void getTransactionDetails(StringBuffer sUsername) {
 		for (Account sref : lobj) {
@@ -502,16 +382,7 @@ class DBMS {
 
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    DisplaySpecific
-	//Description:      display the details about specific account
-	//Input:            String
-	//Output:           ---
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	public void DisplaySpecific(String sUsername) 
 	{
 		// Display by Username
@@ -523,16 +394,7 @@ class DBMS {
 		}
 	}
 
-	//////////////////////////////////////////////////////////
-	//
-	//Function Name:    finalize
-	//Description:      deallocate the resources used by class
-	//Input:            ---
-	//Output:           ---
-	//Date:             04/03/2023
-	//Author:           Manas Ohara
-	//
-	//////////////////////////////////////////////////////////
+	
 	protected void finalize()
 	{
 		lobj = null;
@@ -542,7 +404,7 @@ class DBMS {
 	
 }
 
-class program372 {
+class ATMInterface {
 	public static void main(String args[]) {
 		DBMS dobj = new DBMS();
 		dobj.StartDBMS();
